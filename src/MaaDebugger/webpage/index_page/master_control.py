@@ -179,7 +179,7 @@ async def connect_win32_control():
         StatusIndicator(GlobalStatus, "ctrl_connecting")
         hwnd_input = (
             ui.input("HWND", placeholder="0x11451", validation=ic.hwnd)
-            .props("size=30")
+            .props("size=10")
             .bind_value(STORAGE, "hwnd")
             .on("keydown.enter", lambda: on_click_connect())
         )
@@ -199,10 +199,9 @@ async def connect_win32_control():
             on_click=lambda: on_click_connect(),
         )
         window_name_input = (
-            ui.input(
-                "Search Window Name", placeholder="Supports regex, eg: File Explorer"
-            )
-            .props("size=30")
+            ui.input("Search Window Name", placeholder="eg: File Explorer")
+            .props("size=20")
+            .tooltip("Supports regex")
             .bind_value(STORAGE, "window_name")
             .on("keydown.enter", lambda: on_click_detect())
         )
